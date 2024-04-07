@@ -10,11 +10,11 @@ import aiohttp
 from . import model
 
 __all__ = [
-    "Client",
+    "TadoClient",
 ]
 
 
-class Client:
+class TadoClient:
     """Async client for your API.
 
     TODO: describe what the client does.
@@ -39,7 +39,7 @@ class Client:
     def authenticated(fn):
 
         @functools.wraps(fn)
-        async def wrapper(self: "Client", *args, **kwargs):
+        async def wrapper(self: "TadoClient", *args, **kwargs):
             await self.maybe_login()
             return await fn(self, *args, **kwargs)
 
